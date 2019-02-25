@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 - 과제는 Rmd 파일과 Rmd 실행시 필요한 RDS 파일로 제출하였습니다.
-- Rmd 실행시 필요한 Package 설치코드는 주석처리 해두었습니다.
+- Rmd 실행시 필요한 R 패키지 설치코드는 `install_packages.R` 입니다.
 - 3번, 4번 문항은 PostgreSQL을 사용하였고, Rmd 파일 내 SQL로 작성하였습니다.  
 
 
@@ -31,30 +31,6 @@ knitr::opts_chunk$set(echo = TRUE)
 ### 1.1 라이브러리
 
 ```{r message=FALSE, warning=FALSE}
-# pkg_list <- c("devtools",
-#               "shiny",
-#               "lubridate",
-#               "data.table",
-#               "reshape2",
-#               "ggplot2",
-#               "ggradar",
-#               "scales",
-#               "ddplyr",
-#               "DBI",
-#               "RPostgreSQL")
-# pkg_list <- pkg_list[!pkg_list %in% as.data.frame(installed.packages())$Package]
-# 
-# if (length(pkg_list) != 0) {
-#   for (pkg in pkg_list) {
-#     if (pkg == "ggradar") {
-#       devtools::install_github("ricardo-bion/ggradar",
-#                                dependencies=TRUE)
-#     } else {
-#       install.packages(pkg)
-#     }
-#   }
-# }
-
 library(shiny)
 library(lubridate) # as_date
 library(data.table) # as.data.table
@@ -62,8 +38,8 @@ library(reshape2) # dcast
 library(ggplot2) # ggplot
 library(ggradar) # ggradar
 library(scales) # rescale
-library(dplyr) # %>%
 library(plyr) # ddply
+library(dplyr) # %>%
 library(DBI) # dbWriteTable
 library(RPostgreSQL)
 
